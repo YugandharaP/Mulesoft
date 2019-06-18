@@ -113,9 +113,10 @@
       		<url>http://repository.mulesoft.org/releases/</url>
      		 <layout>default</layout>
     </repository>
-</repositories>
+
 	</repositories>
-	<pluginRepositories>
+	
+		<pluginRepositories>
 		<!-- unit tests -->	
 		
 		<pluginRepository>
