@@ -120,7 +120,7 @@
 	
 		<pluginRepositories>
 		<pluginRepository>
-			<id>mulesoft-releases</id>
+			<id>mulesoft-release</id>
 			<name>mulesoft release repository</name>
 			<layout>default</layout>
 			<url>https://repository.mulesoft.org/releases/</url>
