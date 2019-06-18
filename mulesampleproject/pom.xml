@@ -34,6 +34,31 @@
                             <version>${jacoco.version}</version>
                             <classifier>runtime</classifier>
                         </dependency>
+		
+		<!-- unit tests -->
+		
+	<dependency>
+            <groupId>org.codehaus.sonar</groupId>
+            <artifactId>sonar-plugin-api</artifactId>
+            <version>${sonar.buildVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.sonar.plugins</groupId>
+            <artifactId>sonar-surefire-plugin</artifactId>
+            <version>${sonar.buildVersion}</version>
+        </dependency>
+
+      
+        <dependency>
+            <groupId>org.codehaus.sonar</groupId>
+            <artifactId>sonar-testing-harness</artifactId>
+            <version>${sonar.buildVersion}</version>
+            <scope>test</scope>
+        </dependency>
+		
+		
 	</dependencies>
 	<build>
 		<plugins>
