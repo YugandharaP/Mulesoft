@@ -77,24 +77,31 @@
 			</plugin>
 			
 			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<classifier>mule-application</classifier>
-					<cloudHubDeployment>
-						<region>eu-central-1</region>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${app.runtime}</muleVersion>
-						<username>${username}</username>
-						<password>${password}</password>
-						<applicationName>${project.artifactid}</applicationName>
-						<environment>${env}</environment>
-						<businessGroup>Abbott\ADC\ADC-NextGen-V3</businessGroup>
-					</cloudHubDeployment>
-				</configuration>
-			</plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${jacoco.version}</version>
+            <configuration>
+               <excludes>
+                  <exclude>**/Messages.*</exclude>
+               </excludes>
+            </configuration>
+            <executions>
+               <execution>
+                  <id>jacoco-initialize</id>
+                  <phase>initialize</phase>
+                  <goals>
+                     <goal>prepare-agent</goal>
+                  </goals>
+               </execution>
+               <execution>
+                  <id>jacoco-site</id>
+                  <phase>site</phase>
+                  <goals>
+                     <goal>report</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
 			</plugins>
 	</build>
 	<repositories>
