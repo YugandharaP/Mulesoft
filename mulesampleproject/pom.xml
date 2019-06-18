@@ -62,6 +62,30 @@
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
+			
+			
+			<plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0.0</version>
+                        <executions>
+                            <execution>
+                                <id>disable-extension-model-generation</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>set-system-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <properties>
+                                        <property>
+                                            <name>mule.maven.extension.model.disable</name>
+                                            <value>true</value>
+                                        </property>
+                                    </properties>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
 		</plugins>
 	</build>
 	<repositories>
