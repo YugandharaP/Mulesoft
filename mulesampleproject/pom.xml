@@ -93,26 +93,28 @@
 			</plugins>
 	    </build>
 	<repositories>
-		<repository>
+		
+		  <repository>
 			<id>anypoint-exchange</id>
 			<name>Anypoint Exchange</name>
 			<url>https://maven.anypoint.mulesoft.com/api/v1/maven</url>
 			<layout>default</layout>
-		</repository>
-		<repository>
+		 </repository>
+		 <repository>
 			<id>mulesoft-releases</id>
 			<name>MuleSoft Releases Repository</name>
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
-		</repository>
-		<repositories>
-		<!-- unit tests -->	
-      <repository>
+		 </repository>
+		
+		
+			<!-- unit tests -->	
+               <repository>
      		<id>mulesoft-releases</id>
       		<name>MuleSoft Releases Repository</name>
       		<url>http://repository.mulesoft.org/releases/</url>
      		 <layout>default</layout>
-    </repository>
+              </repository>
 
 	</repositories>
 	
