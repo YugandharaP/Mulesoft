@@ -13,7 +13,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<app.runtime>4.1.4</app.runtime>
 		<mule.maven.plugin.version>3.1.6</mule.maven.plugin.version>
-	
+	 <jacoco.version>0.8.3</jacoco.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -32,9 +32,32 @@
 		
 		<!-- unit tests -->
 		
-	
+	 <dependency>
+		<groupId>org.jacoco</groupId>
+		<artifactId>jacoco-maven-plugin</artifactId>
+		<version>${jacoco.version}</version>
+        <!-- Exclude a few unused transitive dependencies of things that are not needed here to avoid clashes with other plugins -->
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>backport-util-concurrent</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+        </exclusions> 
+      </dependency>
 
-       
+        <dependency>
+	    <groupId>org.jacoco</groupId>
+	    <artifactId>org.jacoco.report</artifactId> <!-- we're done with ReportMojo now, so we don't need to depend on the maven plugin anymore -->
+	    <version>${jacoco.version}</version>
+	  </dependency>
       
         
 		
