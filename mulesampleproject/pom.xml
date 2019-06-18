@@ -36,41 +36,33 @@
 	</dependencies>
 	<build>
 		<plugins>
-			<plugin>
-    <groupId>com.mulesoft.munit.tools</groupId>
-    <artifactId>munit-maven-plugin</artifactId>
-    <version>${project.version}</version>
-    <executions>
-        <execution>
-            <id>test</id>
-            <phase>test</phase>
-            <goals>
-                <goal>test</goal>
-                <goal>coverage-report</goal>
-            </goals>
-        </execution>
-    </executions>
-    <configuration>
-        <coverage>
-            <runCoverage>true</runCoverage>
-            <failBuild>false</failBuild>
-            <requiredApplicationCoverage>0</requiredApplicationCoverage>
-            <requiredResourceCoverage>0</requiredResourceCoverage>
-            <requiredFlowCoverage>0</requiredFlowCoverage>
-            <formats>
-                <format>console</format>
-                <format>html</format>
-            </formats>
-        </coverage>
-    </configuration>
-</plugin>
+		
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				 <artifactId>sonar-maven-plugin</artifactId>
 				 <version>3.2</version>
 			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<classifier>mule-application</classifier>
+					<cloudHubDeployment>
+						<region>eu-central-1</region>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${app.runtime}</muleVersion>
+						<username>${username}</username>
+						<password>${password}</password>
+						<applicationName>${project.artifactid}</applicationName>
+						<environment>${env}</environment>
+						<businessGroup>Abbott\ADC\ADC-NextGen-V3</businessGroup>
+					</cloudHubDeployment>
+				</configuration>
+			</plugin>
 			</plugins>
-	</build>
+	    </build>
 	<repositories>
 		<repository>
 			<id>anypoint-exchange</id>
