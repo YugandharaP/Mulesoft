@@ -31,20 +31,7 @@
 		
 		
 		<!-- unit tests -->
-		<dependency>
-    <groupId>com.mulesoft.munit</groupId>
-    <artifactId>munit-runner</artifactId>
-    <version>${munit.version}</version>
-    <classifier>mule-plugin</classifier>
-    <scope>test</scope>
-  </dependency>
-  <dependency>
-    <groupId>com.mulesoft.munit</groupId>
-    <artifactId>munit-tools</artifactId>
-    <version>${munit.version}</version>
-    <classifier>mule-plugin</classifier>
-    <scope>test</scope>
-  </dependency>
+		
 	
 	</dependencies>
 	<build>
@@ -56,20 +43,69 @@
 				 <version>3.2</version>
 			</plugin>
 			<!-- unit tests -->
-			 <plugin>
-      <groupId>com.mulesoft.munit.tools</groupId>
-      <artifactId>munit-maven-plugin</artifactId>
-      <version>${munit.version}</version>
-      <executions>
-        <execution>
-          <id>test</id>
-          <phase>test</phase>
-          <goals>
-            <goal>test</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+
+				<artifactId>jacoco-maven-plugin</artifactId>
+
+				<executions>
+
+					<execution>
+
+						<id>prepare-agent</id>
+
+						<goals>
+
+							<goal>prepare-agent</goal>
+
+						</goals>
+
+					</execution>
+
+					<execution>
+
+						<id>report</id>
+
+						<phase>prepare-package</phase>
+
+						<goals>
+
+							<goal>report</goal>
+
+						</goals>
+
+					</execution>
+
+					<execution>
+
+						<id>post-unit-test</id>
+
+						<phase>test</phase>
+
+						<goals>
+
+							<goal>report</goal>
+
+						</goals>
+
+						<configuration>
+
+							<!-- Sets the path to the file which contains the execution data. -->
+
+
+							<dataFile>target/jacoco.exec</dataFile>
+
+							<!-- Sets the output directory for the code coverage report. -->
+
+							<outputDirectory>target/jacoco-ut</outputDirectory>
+
+						</configuration>
+
+					</execution>
+
+				</executions>
+			</plugin>
+			
 
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
