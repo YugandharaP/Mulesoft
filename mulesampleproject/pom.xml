@@ -36,75 +36,47 @@
 	</dependencies>
 	<build>
 		<plugins>
-		
-			<plugin>
-				<groupId>org.sonarsource.scanner.maven</groupId>
-				 <artifactId>sonar-maven-plugin</artifactId>
-				 <version>3.2</version>
+		       <plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-app-maven-plugin</artifactId>
+				<version>${mule.tools.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+                    <copyToAppsDirectory>true</copyToAppsDirectory>
+				</configuration>
 			</plugin>
-			<!-- unit tests -->
 			<plugin>
-				<groupId>org.jacoco</groupId>
-
-				<artifactId>jacoco-maven-plugin</artifactId>
-
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
 				<executions>
-
 					<execution>
-
-						<id>prepare-agent</id>
-
+						<id>add-resource</id>
+						<phase>generate-resources</phase>
 						<goals>
-
-							<goal>prepare-agent</goal>
-
+							<goal>add-resource</goal>
 						</goals>
-
-					</execution>
-
-					<execution>
-
-						<id>report</id>
-
-						<phase>prepare-package</phase>
-
-						<goals>
-
-							<goal>report</goal>
-
-						</goals>
-
-					</execution>
-
-					<execution>
-
-						<id>post-unit-test</id>
-
-						<phase>test</phase>
-
-						<goals>
-
-							<goal>report</goal>
-
-						</goals>
-
 						<configuration>
-
-							<!-- Sets the path to the file which contains the execution data. -->
-
-
-							<dataFile>target/jacoco.exec</dataFile>
-
-							<!-- Sets the output directory for the code coverage report. -->
-
-							<outputDirectory>target/jacoco-ut</outputDirectory>
-
+							<resources>
+								<resource>
+									<directory>src/main/app/</directory>
+								</resource>
+								<resource>
+									<directory>src/main/api/</directory>
+								</resource>
+								<resource>
+									<directory>mappings/</directory>
+								</resource>
+							</resources>
 						</configuration>
-
 					</execution>
-
 				</executions>
 			</plugin>
+		
+			
+			
+
+						
 			
 
 			<plugin>
