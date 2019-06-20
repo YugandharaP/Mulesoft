@@ -17,7 +17,7 @@
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
               <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
                <mule.tools.version>1.7</mule.tools.version>
-  	      <sonar.sources>src/main/mule,src/main/app</sonar.sources>
+  	      <sonar.sources>src/main/mule</sonar.sources>
 	</properties>
 	<dependencies>
 		<dependency>
