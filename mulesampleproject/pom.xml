@@ -14,6 +14,10 @@
 		<app.runtime>4.1.4</app.runtime>
 		<mule.maven.plugin.version>3.1.6</mule.maven.plugin.version>
 		<munit.version>2.1.5</munit.version>
+		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+              <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+               <mule.tools.version>1.7</mule.tools.version>
+  	      <sonar.sources>src/main/java,src/main/app</sonar.sources>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -115,15 +119,13 @@
 			<layout>default</layout>
 		 </repository>
 		
-		
-			<!-- unit tests -->	
-            <!--   <repository>
-     		<id>mulesoft-releases</id>
-      		<name>MuleSoft Releases Repository</name>
-      		<url>http://repository.mulesoft.org/releases/</url>
-     		 <layout>default</layout>
-              </repository>
-                 -->	
+		<repository>
+            <id>Central</id>
+            <name>Central</name>
+            <url>http://repo1.maven.org/maven2/</url>
+            <layout>default</layout>
+        </repository>
+	
 	</repositories>
 	
 		<pluginRepositories>
