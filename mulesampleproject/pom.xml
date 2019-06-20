@@ -65,6 +65,9 @@
 								<resource>
 									<directory>src/main/mule/</directory>
 								</resource>
+								<resource>
+									<directory>src/main/resource/</directory>
+								</resource>
 								<!--<resource>
 									<directory>src/main/api/</directory>
 								</resource> -->
