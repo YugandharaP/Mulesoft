@@ -13,8 +13,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<app.runtime>4.1.4</app.runtime>
 		<mule.maven.plugin.version>3.1.6</mule.maven.plugin.version>
-		<munit.version>2.1.5</munit.version>
-		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+		
+		     <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
               <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
                <mule.tools.version>1.7</mule.tools.version>
   	      <sonar.sources>src/main/mule</sonar.sources>
@@ -34,12 +34,20 @@
 		</dependency>
 		
 		
+		
+		
 		<!-- unit tests -->
 		
 	
 	</dependencies>
 	<build>
 		<plugins>
+	<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				 <artifactId>sonar-maven-plugin</artifactId>
+				 <version>3.2</version>
+			</plugin>
+	
 		       <plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
@@ -49,10 +57,11 @@
                     <copyToAppsDirectory>true</copyToAppsDirectory>
 				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
+				<!-- <version>1.7</version> -->
 				<executions>
 					<execution>
 						<id>add-resource</id>
@@ -66,12 +75,10 @@
 									<directory>src/main/mule/</directory>
 								</resource>
 								<resource>
-									<directory>src/main/resource/</directory>
+									<!-- <directory>src/main/api/</directory> -->
+									<directory>src/main/resources/</directory>
 								</resource>
-								<!--<resource>
-									<directory>src/main/api/</directory>
-								</resource> -->
-                                                                    <resource>
+                                  <resource>
 									<directory>mappings/</directory>
 								</resource>
 							</resources>
