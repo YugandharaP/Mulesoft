@@ -12,12 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<app.runtime>4.1.4</app.runtime>
-		<mule.maven.plugin.version>3.1.6</mule.maven.plugin.version>
-		
-		     <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-              <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
-               <mule.tools.version>1.7</mule.tools.version>
-  	      <sonar.sources>src/main/mule</sonar.sources>
+		<mule.maven.plugin.version>3.1.6</mule.maven.plugin.versi
 	</properties>
 	<dependencies>
 		<dependency>
@@ -33,65 +28,10 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		
-		
-		
-		
-		<!-- unit tests -->
-		
-	
 	</dependencies>
 	<build>
 		<plugins>
-	<plugin>
-				<groupId>org.sonarsource.scanner.maven</groupId>
-				 <artifactId>sonar-maven-plugin</artifactId>
-				 <version>3.2</version>
-			</plugin>
 	
-		       <plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-app-maven-plugin</artifactId>
-				<version>${mule.tools.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-                    <copyToAppsDirectory>true</copyToAppsDirectory>
-				</configuration>
-			</plugin>
-			
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<!-- <version>1.7</version> -->
-				<executions>
-					<execution>
-						<id>add-resource</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>add-resource</goal>
-						</goals>
-						<configuration>
-							<resources>
-								<resource>
-									<directory>src/main/mule/</directory>
-								</resource>
-								<resource>
-									<!-- <directory>src/main/api/</directory> -->
-									<directory>src/main/resources/</directory>
-								</resource>
-                                  <resource>
-									<directory>mappings/</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		
-			
-			
-
-						
-			
 
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
