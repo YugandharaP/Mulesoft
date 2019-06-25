@@ -102,13 +102,13 @@
 					<classifier>mule-application</classifier>
 					<cloudHubDeployment>
 						<region>eu-central-1</region>
-						<uri>https://anypoint.mulesoft.com</uri>
+						<uri>https://eu1.anypoint.mulesoft.com</uri>
 						<muleVersion>${app.runtime}</muleVersion>
 						<username>${username}</username>
 						<password>${password}</password>
-						<applicationName>${project.artifactid}</applicationName>
-						<environment>${env}</environment>
 						<businessGroup>Abbott\ADC\ADC-NextGen-V3</businessGroup>
+						<applicationName>${applicationname}</applicationName>
+						<environment>${env}</environment>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
